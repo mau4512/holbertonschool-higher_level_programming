@@ -28,4 +28,4 @@ class Rectangle(BaseGeometry):
         return string
 
     def print(self):
-        print(__str__(self))
+        print(__str__())
