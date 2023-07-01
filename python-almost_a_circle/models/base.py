@@ -59,10 +59,10 @@ class Base:
         return json.loads(json_string)
 
     @classmethod
-    def created(cls, **dictionary):
+    def create(cls, **dictionary):
         """Returns a class instatied from a dictionary of attributes
         Args:
-            **dictionary: hey/value pair of attributes to initialize
+            **dictionary: key/value pair of attributes to initialize
         """
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
