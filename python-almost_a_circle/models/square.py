@@ -16,11 +16,6 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
 
-    def __str__(self):
-        """Return the print() and str() representation of a Square"""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                                                 self.width)
-
     @property
     def size(self):
         """Get/set the size of the Square"""
@@ -31,7 +26,7 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def upadate(self, *args, **kwargs):
+    def update(self, *args, **kwargs):
         """update the Square
         Args:
             *args: New attribute values
@@ -53,7 +48,7 @@ class Square(Rectangle):
                     self.size = arg
                 elif i == 2:
                     self.x = arg
-                elif i == 2:
+                elif i == 3:
                     self.y = arg
                 i += 1
         elif kwargs and len(kwargs) != 0:
@@ -69,3 +64,8 @@ class Square(Rectangle):
                     self.x = v
                 elif k == "y":
                     self.y = v
+
+    def __str__(self):
+        """Return the print() and str() representation of a square"""
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)
