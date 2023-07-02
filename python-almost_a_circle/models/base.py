@@ -71,3 +71,25 @@ class Base:
                 new = cls(1)
             new.update(**dictionary)
             return new
+
+    @classmethod
+    def load_from_file(cls):
+        """Return a list of classes instatiated from a CSV file
+        reads from <cls.__name__>.csv
+        Returns:
+         if the file does not exist - an empty list
+         otherwise - a list of instatiated classes
+        """
+        filename = cls.__name__+".csv"
+        try:
+            with open(filename, "r", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.intems())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []
