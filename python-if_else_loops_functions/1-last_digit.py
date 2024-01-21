@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 import random
-number = random.randint(-10000, 10000) # end of provided script
+number = random.randint(-10000, 10000)
 
-if number < 0:  # Python returns different modulo than C for negative ints
+if number < 0:
     abs = number * -1
     digit = (abs % 10) * -1
 else:
